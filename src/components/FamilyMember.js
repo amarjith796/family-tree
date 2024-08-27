@@ -9,9 +9,9 @@ const FamilyMember = ({ member }) => {
     <>
       <ul>
         <li>
-          <a href="#">
+          <p>
             {`${member.isDeceased ? "स्व:" : ""}`} {t(member.name)}
-          </a>
+          </p>
           {member.children && member.children.length > 0 && (
             <ul>
               {member.children.map((child, index) => (
