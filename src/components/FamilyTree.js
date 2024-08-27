@@ -2,7 +2,7 @@ import React from "react";
 import html2canvas from "html2canvas";
 import { useSelector } from "react-redux";
 import FamilyMember from "./FamilyMember";
-import { familyData } from "./data/familydata";
+import { familyData } from "../data/familydata";
 
 const FamilyTree = () => {
   const members = useSelector((state) => state.familyData);
