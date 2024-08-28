@@ -27,8 +27,10 @@ const FamilyTree = () => {
         element.style.width = `${scrollWidth}px`;
         element.style.height = `${scrollHeight + 100}px`;
 
+        const scale = 2;
         // Capture the element with html2canvas
         const canvas = await html2canvas(element, {
+          scale,
           scrollX: 0,
           scrollY: 0,
           useCORS: true,
