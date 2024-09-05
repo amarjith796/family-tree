@@ -48,7 +48,6 @@ const FamilyForm = () => {
   };
 
   const handlePersonAlive = (id, value) => {
-    console.log(id, value)
     const updatePersonAliveRecursive = (personList) =>
       personList.map((person) =>
         person.id === id
@@ -58,6 +57,16 @@ const FamilyForm = () => {
 
     setPeople(updatePersonAliveRecursive(people));
   };
+  const handleSpuse = (id, spousename) => {
+    const updatePersonSpouseRecursive = (personList) =>
+      personList.map((person) =>
+        person.id === id
+          ? { ...person, spouse: spousename }
+          : { ...person, children: updatePersonSpouseRecursive(person.children) }
+      );
+
+    setPeople(updatePersonSpouseRecursive(people));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,6 +74,7 @@ const FamilyForm = () => {
       personList.map((person) => ({
         name: person.name,
         isDeceased: person.alive,
+        spouse: person.spouse,
         children: buildFamilyData(person.children),
       }));
 
@@ -89,7 +99,16 @@ const FamilyForm = () => {
           required
         />
       </label> &nbsp; &nbsp;
-      Deceased: <input type="checkbox" checked={person.isDeceased} onChange={(e)=> handlePersonAlive(person.id, e.target.checked)} /> &nbsp; &nbsp;&nbsp;
+      <label>
+        Spouse:
+        <input
+          type="text"
+          value={person.spouse}
+          onChange={(e) => handleSpuse(person.id, e.target.value)}
+          placeholder="optional"
+        />
+      </label> &nbsp; &nbsp;
+      Deceased: <input type="checkbox" checked={person.isDeceased} onChange={(e)=> handlePersonAlive(person.id, e.target.checked)} /> &nbsp; &nbsp;&nbsp;  
       <button type="button" onClick={() => handleAddPerson(person.id)}>
         Add Child
       </button>

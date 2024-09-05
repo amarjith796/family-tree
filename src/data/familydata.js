@@ -132,3 +132,52 @@ export const familyData = {
     },
   ],
 };
+
+
+export const familyData2 = {
+  name: "रामपति महतो",
+  isRoot: true,
+  isDeceased: true,
+  children: [
+    {
+      name: "होरिल प्रसाद (पुत्र)",
+      isDeceased: true,
+      children: [
+        {
+          name: "अवध किशोर प्रसाद (पुत्र)",
+          children: [],
+        },
+        {
+          name: "राजकिशोर प्रसाद (पुत्र)",
+          isDeceased: true,
+          spouse: "फुलझरी देवी (पत्नी) ",
+          children: [
+            { name: "आनंद कुमार (पुत्र) ", children: [] },
+          ],
+        },
+        {
+          name: "मुखिया प्रसाद (पुत्र)",
+          children: [],
+        }
+      ],
+    },
+    {
+      name: "हरानी प्रसाद (पुत्र)",
+      isDeceased: true,
+      children: [
+        {
+          name: "अर्जुन सिंह (पुत्र)",
+          children: [],
+        },
+        {
+          name: "सुरेश प्रसाद (पुत्र)",
+          children: [],
+        },
+        {
+          name: "सुबाष प्रसाद (पुत्र)",
+          children: [],
+        }
+      ],
+    }
+  ],
+};
